@@ -1,0 +1,56 @@
+﻿@using EverythingTech.ViewModel
+@model LoginVM
+@{
+}
+<!Doctype html>
+<html lang="en">
+<head>
+
+    <nav class="nav">
+        <h1 class="title">Everything Tech.</h1>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </nav>
+    <div class="action_items">
+        <h3 style="display: inline-block; margin-right:10px">Home</h3>
+        <h3 style="display: inline-block; margin-right:10px">Services</h3>
+        <h3 style="display: inline-block; margin-right:10px">About</h3>
+        <h3 style="display: inline-block; margin-right:10px">Contact Us</h3>
+    </div>
+    <body class="text-center" >
+
+       
+        <main class="form-signin" style="margin-top:150px">
+
+           
+            <form asp-action="Login">
+                @*            <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                *@            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                <div class="form-group">
+                    <input asp-for="Email" class="form-control" placeholder="name@example.com">
+                    <label asp-for="Email" class="form-control-label" class="text-danger" />
+                    @* <label for="floatingInput">Email address</label>*@
+                </div>
+                <div class="form-group">
+                    <input asp-for="Password" class="form-control" placeholder="Password">
+                    <label asp-for="Password" class="form-control-label" class="text-danger" />
+                    @*  <label for="floatingPassword">Password</label>*@
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="not-so-rounded-button" style="width:200px;height:70px;"   type="submit" value="Login">Sign in</button>
+                
+               
+            </form>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </main>
+
+
+
+    </body>
+</head>
+</html>

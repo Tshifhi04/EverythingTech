@@ -12,6 +12,42 @@
     <h3 style="display: inline-block; margin-right:10px">About</h3>
     <h3 style="display: inline-block; margin-right:10px">Contact Us</h3>
 </div>
+
+
+@*<div class="gallary">
+   
+    <img src="~/test2.jpg" alt="A landscape view of a mountain range">
+    <img src="~/test2.jpg" alt="A landscape view of a mountain range">
+    <img src="~/test2.jpg" alt="A landscape view of a mountain range">
+
+
+</div>
+<style>
+    .gallary{
+        margin-top:140px;
+    display:flex;
+    height:11rem;
+       
+   
+    gap:1rem;
+    }
+    .gallary > img {
+        flex:1;
+        border-radius:3rem;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:auto 100%;
+        transition:all .8s cubic-bezier(.25,.4,.45,1.4);
+    }
+    .gallary > img:hover{
+        flex:10;
+    }
+    </style>
+
+*@
+
+
+
 <div class="attraction">
     
     <p class="sentence"> The <span class="bold-word">Best</span> at what what we do.</p>
@@ -27,8 +63,62 @@
         We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
 
     </p>
+    <p>
+        our goal is to provide innovative and reliable technology solutions that empower our you to achieve your business goals.<br />
+
+        We strive to deliver exceptional software products and services that exceed our your expectations and drive your success.<br />
+
+        We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
+
+    </p>
+    <p>
+        our goal is to provide innovative and reliable technology solutions that empower our you to achieve your business goals.<br />
+
+        We strive to deliver exceptional software products and services that exceed our your expectations and drive your success.<br />
+
+        We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
+
+    </p><p>
+        our goal is to provide innovative and reliable technology solutions that empower our you to achieve your business goals.<br />
+
+        We strive to deliver exceptional software products and services that exceed our your expectations and drive your success.<br />
+
+        We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
+
+    </p><p>
+        our goal is to provide innovative and reliable technology solutions that empower our you to achieve your business goals.<br />
+
+        We strive to deliver exceptional software products and services that exceed our your expectations and drive your success.<br />
+
+        We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
+
+    </p><p>
+        our goal is to provide innovative and reliable technology solutions that empower our you to achieve your business goals.<br />
+
+        We strive to deliver exceptional software products and services that exceed our your expectations and drive your success.<br />
+
+        We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
+
+    </p><p>
+        our goal is to provide innovative and reliable technology solutions that empower our you to achieve your business goals.<br />
+
+        We strive to deliver exceptional software products and services that exceed our your expectations and drive your success.<br />
+
+        We are committed to fostering a culture of collaboration, creativity, and continuous improvement, where our team members can grow, learn, and thrive.
+
+    </p>
+    <br /> <br /> <br /> <br />
+    <form action="@Url.Action("Register", "Account")" method="GET">
+        <button class="rounded-button" style="width:200px;height:70px;">
+            Develop with us
+        </button>
+    </form>
 </div>
 
+@*<form asp-page="/Account/Login" asp-route-id="123">
     <button class="rounded-button" style="width:200px;height:70px;">
         Develop with us
     </button>
+</form>*@
+
+
