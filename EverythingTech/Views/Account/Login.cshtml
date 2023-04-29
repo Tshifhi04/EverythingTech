@@ -24,11 +24,17 @@
            
             <form asp-action="Login">
                 @*            <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-                *@            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+                *@            <h1 class="whitefont">Please sign in</h1>
+
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/hbvyhtse.json"
+                           trigger="hover"
+                           style="width:100px;height:200px">
+                </lord-icon>
 
                 <div class="form-group">
-                    <input asp-for="Email" class="form-control" placeholder="name@example.com">
-                    <label asp-for="Email" class="form-control-label" class="text-danger" />
+                    <input asp-for="EmailAddress" class="form-control" placeholder="name@example.com">
+                    <label asp-for="EmailAddress" class="form-control-label" class="text-danger" />
                     @* <label for="floatingInput">Email address</label>*@
                 </div>
                 <div class="form-group">
@@ -46,6 +52,8 @@
                 
                
             </form>
+            <a href="@Url.Action("Register")" style="margin-top:20px;color:snow">Dont Have an Account?</a>
+
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
         </main>
 

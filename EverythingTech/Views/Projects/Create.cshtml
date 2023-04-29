@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using EverythingTech.Data.Enum;
+@using EverythingTech.Models
+@model Projects
+
+
+<!Doctype html>
+<html lang="en">
+<head>
+
+    <nav class="nav">
+        <h1 class="title">Everything Tech.</h1>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </nav>
+
+    <body class="text-center">
+
+
+        <main class="form-signin" style="margin-top:150px">
+
+
+            <form method="post" asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @*            <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+                *@
+             
+
+                <h1 class="whitefont">Please Register your Account here</h1>
+
+
+                <div class="form-group">
+                    <input asp-for="projectName" class="form-control" placeholder="Name of the project">
+                    <label asp-for="projectName" class="form-control-label" class="text-danger" />
+                    @* <label for="floatingInput">Email address</label>*@
+                </div>
+                <div class="form-group">
+                    <input asp-for="projectDescription" class="form-control" placeholder="Describe the project">
+                    <label asp-for="projectDescription" class="form-control-label" class="text-danger" />
+                    @*  <label for="floatingPassword">Password</label>*@
+                </div>
+                <div class="form-group">
+                    <lable asp-for="projectCategory">Project Category</lable>
+                    <select asp-for="projectCategory" asp-items="@Html.GetEnumSelectList<ProjectCategory>()" class="form-control">
+                    <option>--Select</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image">Image</label>
+                    <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+                    <span asp-validation-for="Image" class="text-bg-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="HelperCredentials" class="form-control" placeholder="Describe the project">
+                    <label asp-for="HelperCredentials" class="form-control-label" class="text-danger" />
+                    @*  <label for="floatingPassword">Password</label>*@
+                </div> <div class="form-group">
+                    <input asp-for="DueDate" class="form-control" placeholder="DueDate">
+                    <label asp-for="DueDate" class="form-control-label" class="text-danger" />
+                    @*  <label for="floatingPassword">Password</label>*@
+                </div> <div class="form-group">
+                    <input asp-for="GitLink" class="form-control" placeholder="Git Hub Link">
+                    <label asp-for="GitLink" class="form-control-label" class="text-danger" />
+                    @*  <label for="floatingPassword">Password</label>*@
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="not-so-rounded-button" asp-area="" asp-action="Create" asp-controller="Projects">Create one!</button><br />
+
+
+
+            </form>
+            <a href="@Url.Action("Login")" style="margin-top:20px;color:snow">Already Have an Account?</a>
+
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </main>
+
+
+
+    </body>
+</head>
+</html>

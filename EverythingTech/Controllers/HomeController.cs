@@ -17,6 +17,10 @@ namespace EverythingTech.Controllers
         {
             return View();
         }
+        public IActionResult IndexUser()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

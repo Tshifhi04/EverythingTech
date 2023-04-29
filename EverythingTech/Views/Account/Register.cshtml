@@ -11,12 +11,54 @@
         <h1 class="title">Everything Tech.</h1>
         <i class="fa fa-bars" aria-hidden="true"></i>
     </nav>
-    <div class="action_items">
-        <h3 style="display: inline-block; margin-right:10px">Home</h3>
-        <h3 style="display: inline-block; margin-right:10px">Services</h3>
-        <h3 style="display: inline-block; margin-right:10px">About</h3>
-        <h3 style="display: inline-block; margin-right:10px">Contact Us</h3>
+    <div class="action_items" style="display: flex;">
+        <div class="home">
+            <a href="/home">
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json"
+                           trigger="hover"
+                           style="width:50px;height:50px">
+                    <h2></h2>
+                </lord-icon>
+           
+            <h3 style="display: inline-block; margin-right:10px">Home</h3>
+            </a>
+        </div>
+        <div class="about">
+            <a href="/about">
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/yyecauzv.json"
+                           trigger="hover"
+                           style="width:50px;height:50px">
+                </lord-icon>
+            
+            <h3 style="display: inline-block; margin-right:10px">About</h3>
+            </a>
+        </div>
+        <div class="services">
+            <a href="/services">
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/fhtaantg.json"
+                           trigger="hover"
+                           style="width:50px;height:50px">
+                </lord-icon>
+           
+            <h3 style="display: inline-block; margin-right:10px">Services</h3>
+            </a>
+        </div>
+        <div class="contact">
+            <a href="/contact">
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/fwafvpnq.json"
+                           trigger="hover"
+                           style="width:50px;height:50px">
+                </lord-icon>
+                
+            <h3 style="display: inline-block; margin-right:10px">Contact Us</h3>
+            </a>
+        </div>
     </div>
+
     <body class="text-center">
 
 
@@ -24,14 +66,21 @@
 
 
             <form asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 @*            <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-                *@            <h1 class="whitefont">Please Register your Account here</h1>
+                *@  
+                <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/dqxvvqzi.json"
+                           trigger="morph"
+                           colors="outline:#121331,primary:#5c230a,secondary:#e86830"
+                           stroke="75"
+                           state="morph-group"
+                           style="width:250px;height:250px">
+                </lord-icon>
+                
+                <h1 class="whitefont">Please Register your Account here</h1>
 
-                <div class="form-group">
-                    <input asp-for="UserName" class="form-control" placeholder="User Name">
-                    <label asp-for="UserName" class="form-control-label" class="text-danger" />
-                    @* <label for="floatingInput">Email address</label>*@
-                </div>
+               
                 <div class="form-group">
                     <input asp-for="EmailAddress" class="form-control" placeholder="name@example.com">
                     <label asp-for="EmailAddress" class="form-control-label" class="text-danger" />
@@ -42,17 +91,24 @@
                     <label asp-for="Password" class="form-control-label" class="text-danger" />
                     @*  <label for="floatingPassword">Password</label>*@
                 </div>
+                <div class="form-group">
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="User Name">
+                    <label asp-for="ConfirmPassword" class="form-control-label" class="text-danger" />
+                    @* <label for="floatingInput">Email address</label>*@
+                </div>
 
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
                     </label>
                 </div>
-                <button class="not-so-rounded-button" style="width:200px;height:70px;" type="submit" value="Login">Register</button><br />
-                <a  style="margin-top:20px;color:snow" type="submit" value="Login">Already Have anAccount?</a>
+                <button class="not-so-rounded-button" asp-area="" asp-action="Register" asp-controller="Account" >Register</button><br />
+               
 
-
+               
             </form>
+            <a href="@Url.Action("Login")" style="margin-top:20px;color:snow">Already Have an Account?</a>
+
             <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
         </main>
 

@@ -5,8 +5,8 @@ namespace EverythingTech.ViewModel
     public class RegisterVM
     {
 
-        [Display(Name = "Email Address")]
-        public string UserName { get; set; }
+        
+       
         [Display (Name = "Email Address")]
         [Required(ErrorMessage ="Email Required")]
         public string EmailAddress { get; set; }

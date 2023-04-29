@@ -8,7 +8,7 @@ namespace EverythingTech.ViewModel
         [Display(Name = "Email Address")]
         [Required(ErrorMessage = " Please enter your Email Address")]
 
-        public string Email { get; set; }
+        public string EmailAddress { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
