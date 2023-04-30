@@ -1,6 +1,10 @@
 ﻿using EverythingTech.Interfaces;
+using EverythingTech.Models;
+using EverythingTech.Services;
 using EverythingTech.ViewModel;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EverythingTech.Controllers
@@ -8,15 +12,27 @@ namespace EverythingTech.Controllers
     public class UserController : Controller
     {
 
-        private readonly IUserRepository _userRepository;
 
-        public UserController(IUserRepository userRepository)
+        private readonly IUserRepository _userRepository;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<AppUser> _userManager;
+        private readonly IPhotoService _photoService;
+        private readonly SignInManager<AppUser> _signInManager;
+
+
+
+        public UserController(IUserRepository userRepository, Microsoft.AspNetCore.Identity.UserManager<AppUser> userManager, IPhotoService photoService)
         {
             _userRepository = userRepository;
+            _userManager = userManager;
+            _photoService = photoService;
+
+
         }
         [HttpGet("users")]
         public async Task<IActionResult> Index()
         {
+           // var isSignedIn = _signInManager.IsSignedIn(User);
+
             var users = await _userRepository.GetAllUsers();
             List<UserViewModel> result = new List<UserViewModel>();
             foreach (var user in users)
@@ -25,7 +41,7 @@ namespace EverythingTech.Controllers
                 {
                     Id = user.Id,
                     Name = user.Name,
-                    Image = user.Image,
+                    ProfileImageUrl = user.ProfileImageUrl,
                     Surname = user.Surname,
                     Email = user.Email,
 
@@ -51,13 +67,13 @@ namespace EverythingTech.Controllers
                 Email = user.Email,
                 Surname = user.Surname,
                 Name = user.Name,
-                Image = user.Image ?? "/img/avatar-male-4.jpg",
+                Image = user.ProfileImageUrl ?? "/img/avatar-male-4.jpg",
             };
             return View(userDetailViewModel);
 
         }
 
-
+      
 
         [HttpGet]
         [Authorize]
@@ -72,10 +88,11 @@ namespace EverythingTech.Controllers
 
             var editMV = new EditProfileViewModel()
             {
-                City = user.City,
-                State = user.State,
-                Pace = user.Pace,
-                Mileage = user.Mileage,
+                Name = user.Name,
+                Surname = user.Surname ,
+
+                Email = user.Email,
+               //ProfileImageUrl= user.Image,
                 ProfileImageUrl = user.ProfileImageUrl,
             };
             return View(editMV);
@@ -121,15 +138,14 @@ namespace EverythingTech.Controllers
                 return View(editVM);
             }
 
-            user.City = editVM.City;
-            user.State = editVM.State;
-            user.Pace = editVM.Pace;
-            user.Mileage = editVM.Mileage;
+            user.Name = editVM.Name;
+            user.Surname = editVM.Surname;
+            user.Email = editVM.Email;
+//user.Mileage = editVM.Mileage;
 
             await _userManager.UpdateAsync(user);
 
-            return RedirectToAction("Detail", "User", new { user.Id });
+            return RedirectToAction("Details", "User", new { user.Id });
         }
     }
-}
 }

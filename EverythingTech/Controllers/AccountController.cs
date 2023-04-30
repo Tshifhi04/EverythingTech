@@ -42,7 +42,7 @@ namespace EverythingTech.Controllers
                         {
                             if (await _userManager.IsInRoleAsync(user, "User"))
                             {
-                                return RedirectToAction("Index", "Projects");
+                                return RedirectToAction("Index", "User");
                             }
                             //role Admin go to Admin page
                             if (await _userManager.IsInRoleAsync(user, "Admin"))

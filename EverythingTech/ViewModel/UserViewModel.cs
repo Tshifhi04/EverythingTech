@@ -8,5 +8,6 @@
         public string? Email { get; set; }
 
         public IFormFile? Image { get; set; }
+        public string? ProfileImageUrl { get; internal set; }
     }
 }

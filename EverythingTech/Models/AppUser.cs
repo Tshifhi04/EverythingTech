@@ -12,12 +12,14 @@ namespace EverythingTech.Models
         public string? Name { get; set; }
         public string? Surname { get; set; }
 
-        public string? Image { get; set; }
+        //public string? Image { get; set; }
+        public string? ProfileImageUrl { get; set; }
 
-      
-      
 
-       public ICollection<Projects> projects { get; set; }
+
+
+
+        public ICollection<Projects> projects { get; set; }
 
     }
 }

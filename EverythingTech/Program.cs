@@ -1,4 +1,5 @@
 using EverythingTech.Data;
+using EverythingTech.Helpers;
 using EverythingTech.Interfaces;
 using EverythingTech.Models;
 using EverythingTech.Repository;
@@ -22,7 +23,16 @@ builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<Ap
 
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+});
+
 
 var app = builder.Build();
 if (args.Length == 1 && args[0].ToLower() == "seeddata")
@@ -45,6 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

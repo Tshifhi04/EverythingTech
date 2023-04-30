@@ -1,4 +1,5 @@
 ﻿using EverythingTech.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,6 +8,7 @@ namespace EverythingTech.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly SignInManager<AppUser> _signInManager;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -19,6 +21,7 @@ namespace EverythingTech.Controllers
         }
         public IActionResult IndexUser()
         {
+//var isSignedIn = _signInManager.IsSignedIn(User);
             return View();
         }
 
