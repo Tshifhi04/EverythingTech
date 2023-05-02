@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RunGroopWebApp</title>
+    <title>@ViewData["Title"] - EverythingTech</title>
     <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/entypo.css" asp-append-version="true" />
@@ -50,12 +50,7 @@
                             </li>
                      
                             
-                           @* <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-controller="Race" asp-action="Index">Find Races</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/blog" class="nav-link">Blog</a>
-                            </li>*@
+                         
                         </ul>
                         @if (SignInManager.IsSignedIn(User))
                         {
@@ -69,29 +64,45 @@
                                 {
                                     <img alt="Add Your Profile" src="@currentUser.ProfileImageUrl" class="avatar avatar-sm">
                                 }
-                                <select class="nav-item dropdown">
-                                     
-                                    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                                        <option class="dropdown-item" value="@Url.Action("Detail", "User", new { id = currentUser.Id })">
+                                <div class="nav-item dropdown">
+                                    <select class="form-control" id="pagesDropdown">
+                                        <option selected disabled>Lets Begin</option>
+                                        <option class="dropdown-item" value="@Url.Action("Details", "User", new { id = currentUser.Id })">
                                             <span class="h6 mb-0">View Profile</span>
                                         </option>
-                                    <option class="dropdown-item" value="@Url.Action("EditProfile", "User")">
+                                        <option class="dropdown-item" value="@Url.Action("EditProfile", "User")">
                                             <span class="h6 mb-0">Edit Profile</span>
                                         </option>
-                                        <option class="dropdown-item" value="@Url.Action("Create", "Club")">
-                                            <span class="h6 mb-0">Create Club</span>
+                                        <option class="dropdown-item" value="@Url.Action("index", "User")">
+                                            <span class="h6 mb-0">Manage Users</span>
                                         </option>
-                                        <option class="dropdown-item" value="@Url.Action("Create", "Race")">
+                                      @*  <option class="dropdown-item" value="@Url.Action("Create", "Race")">
                                             <span class="h6 mb-0">Create Race</span>
                                         </option>
-                                        <option class="dropdown-item" value="@Url.Action("Index", "Dashboard")">
+                                        <option class="dropdown-item" value="@Url.Action("Index", "Projects")">
                                             <span class="h6 mb-0">Dashboard</span>
+                                        </option>*@
+                                        <option class="dropdown-item" value="@Url.Action("Logout", "Account")">
+                                            <span class="h6 mb-0">Logout</span>
                                         </option>
-                                        <option>
-                                            <a class="dropdown-item" value="@Url.Action("Logout", "Account")">
-                                            <span su class="h6 mb-0">Logout</span></a>
-                                        </option>
-                                </select>
+                                       
+                                    </select>
+
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script>
+                                        $(function () {
+                                            $('#pagesDropdown').on('change', function () {
+                                                var url = $('option:selected', this).val();
+                                                if (url) {
+                                                    window.location.href = url;
+                                                }
+                                            });
+                                            console.log("Script running!");
+                                        });
+                                    </script>
+                                </div>
+
+
 
                                 <li style="margin-right:10px;margin-left:90px">
                                     @if (User.Identity.IsAuthenticated)
@@ -224,6 +235,12 @@
     <script src="~/js/bootstrap.js"></script>
     <script src="~/js/theme.js"></script>
     <script src="~/js/custom.js"></script>
+
+
+ 
+
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

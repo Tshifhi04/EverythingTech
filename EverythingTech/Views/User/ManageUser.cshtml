@@ -1,17 +1,17 @@
 ﻿@using EverythingTech.ViewModel
-@model EditProfileViewModel
+@model ManageUserViewModel
 
 <!Doctype html>
 <html lang="en">
 <head>
-    </head>
+</head>
 
 <div class="main-container">
     <section class="bg-white space-sm pb-4">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-auto">
-                    <h1 class="h2">Account Settings</h1>
+                    <h1 class="h2">Manage User Profile</h1>
                 </div>
                 <!--end of col-->
                 <!--end of col-->
@@ -88,7 +88,7 @@
                                         <input asp-for="Name" hidden />
                                         <input asp-for="Surname" hidden />
                                         <input asp-for="Email" hidden />
-                                     
+
 
                                     </form>
                                 </div>
@@ -100,7 +100,7 @@
                     <hr />
                     <div class="row mb-4">
                         <div class="col">
-                            <h5>Profile Information</h5>
+                            <h5>User Details</h5>
                         </div>
                         <!--end of col-->
                     </div>
@@ -108,7 +108,7 @@
                     <div class="row">
                         <!--end of col-->
                         <div class="col-12 col-md-8 order-md-1">
-                            <form asp-action="EditProfile" method="post" class="row">
+                            <form asp-action="ManageUser" method="post" class="row">
                                 <div class="col-6">
                                     <div class="form-group">
                                         <label asp-for="Name">Name:</label>

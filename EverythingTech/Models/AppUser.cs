@@ -17,6 +17,7 @@ namespace EverythingTech.Models
 
 
 
+        public string? ProfileBio { get; set; }
 
 
         public ICollection<Projects> projects { get; set; }

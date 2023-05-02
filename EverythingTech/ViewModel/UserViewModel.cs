@@ -9,5 +9,6 @@
 
         public IFormFile? Image { get; set; }
         public string? ProfileImageUrl { get; internal set; }
+        public string? ProfileBio { get; internal set; }
     }
 }

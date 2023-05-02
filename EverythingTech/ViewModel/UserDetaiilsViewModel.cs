@@ -8,5 +8,6 @@
         public string? Email { get; set; }
 
         public string? Image { get; set; }
+        public string? ProfileBio { get; internal set; }
     }
 }
